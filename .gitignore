@@ -1,0 +1,4 @@
+node_modules
+package-lock.json
+job-board/server/.gitignore
+job-board/client/.gitignore
