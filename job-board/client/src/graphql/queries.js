@@ -37,12 +37,15 @@ export async function getJobs() {
 }
 
 export async function getCompanies(id) {
-  console.log("id", id);
   const query = gql`query Company($id: ID!){
   company(id: $id) {
     id
     name
     description
+    jobs {
+      id
+      title
+    }
   }
 }`;
   const variables = { id };
