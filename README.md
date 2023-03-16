@@ -86,6 +86,17 @@ query JobQuery($id: ID!){
 ````
 
 
+````
+query Company($id: ID!){
+  company(id: $id) {
+    id
+    name
+    description
+  }
+}
+````
+
+
 
 
 

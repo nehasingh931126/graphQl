@@ -14,9 +14,9 @@ export async function getJob(id) {
   }
 }
     `;
-  const variables = {id};
+  const variables = { id };
 
-  const {job} = await request(GraphQL_URL, query, variables);
+  const { job } = await request(GraphQL_URL, query, variables);
   return job;
 }
 
@@ -33,6 +33,19 @@ export async function getJobs() {
     `;
 
   const { jobs } = await request(GraphQL_URL, query);
-  console.log(jobs);
   return jobs;
+}
+
+export async function getCompanies(id) {
+  console.log("id", id);
+  const query = gql`query Company($id: ID!){
+  company(id: $id) {
+    id
+    name
+    description
+  }
+}`;
+  const variables = { id };
+  const { company} = await request(GraphQL_URL, query, variables);
+  return company;
 }
