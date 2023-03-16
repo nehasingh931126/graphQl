@@ -20,7 +20,7 @@ function JobDetail() {
     return <p>Loading</p>
   }
 
-  if(!error) {
+  if(error) {
     return <p>Something went wrong</p>
   }
   return (
