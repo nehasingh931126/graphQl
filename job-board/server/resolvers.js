@@ -8,12 +8,14 @@ export const resolvers = {
 
     Mutation: {
         createJob: (_root, {input}, context)=> {
-            const auth = context.auth;
-            if (!auth) {
+            const user = context.user;
+            console.log("[createJob]", user);
+            if (!user) {
                 throw new Error('unauthorised')
             }
-            console.log("check what context we are getting", context);
-            return Job.create(input)
+            // input['companyId'] = user.companyId; // Donot use this 
+            console.log("[createJob]", context);
+            return Job.create({ ...input, companyId: user.companyId }); // use this
         },
         deleteJob: (_root, {id})=> Job.delete(id),
         updateJob: (_root, {input})=> Job.update(input)

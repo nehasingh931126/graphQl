@@ -269,6 +269,13 @@ This is the package used for validating the Apis with jwt
 
 ## Context 
 This is used to extract informtaton from our http request
+I have used the context to make the relevant data available to the resolver
 
 
+## Learning while working
+
+````
+input['companyId'] = user.companyId; // Donot use this 
+return Job.create({ ...input, companyId: user.companyId }); // use this
+````
 

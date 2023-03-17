@@ -26,7 +26,6 @@ type Mutation {
 
 input CreateJobScehma {
     title: String!, 
-    companyId: ID!, 
     description:String
 }
 
