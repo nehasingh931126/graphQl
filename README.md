@@ -184,4 +184,90 @@ This is the hook provided by the React Router it returns a navigate function
 
 It takes the argument as string where you can pass the path
 
+### How Authentication Works
+
+Client ----------------------------------------> Server
+                  Post Login
+Client<--------------------------------------- Server 
+(save token)                  {token: "xys123"}
+
+This token recieved from the Backend is stored in the local storage or in the cookies
+Cookies are slightly more secure
+
+                Post /graphql
+           Authentication: Bearer xys123     
+Client------------------------------------------>Server 
+Client<------------------------------------------- Server
+                  {data: ...}
+
+This Authentication token needs to be sent to the Server everytime it request for any resource to the server
+If the token is verified then only the server will return what ever data the client asked for
+
+Its better to keep the Authentication step outside the graphQl Api
+
+
+JSON WEB TOKEN
+https://jwt.io/
+
+JWT: Combination of Header + Payload + Signation
+
+Therefore, a JWT typically looks like the following.
+xxxxx.yyyyy.zzzzz
+
+## Header
+The header typically consists of two parts: the type of the token, which is JWT, and the signing algorithm being used, such as HMAC SHA256 or RSA.
+
+````
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}
+````
+Then, this JSON is Base64Url encoded to form the first part of the JWT.
+
+## Payload
+The second part of the token is the payload, which contains the claims. Claims are statements about an entity (typically, the user) and additional data. There are three types of claims: registered, public, and private claims.
+
+
+Registered claims: These are a set of predefined claims which are not mandatory but recommended, to provide a set of useful, interoperable claims. Some of them are: iss (issuer), exp (expiration time), sub (subject), aud (audience), and others.
+
+Public claims: These can be defined at will by those using JWTs. But to avoid collisions they should be defined in the IANA JSON Web Token Registry or be defined as a URI that contains a collision resistant namespace.
+
+Private claims: These are the custom claims created to share information between parties that agree on using them and are neither registered or public claims.
+
+An example payload could be:
+
+{
+  "sub": "1234567890",
+  "name": "John Doe",
+  "admin": true
+}
+
+The payload is then Base64Url encoded to form the second part of the JSON Web Token.
+
+
+## Signature
+
+To create the signature part you have to take the encoded header, the encoded payload, a secret, the algorithm specified in the header, and sign that.
+
+For example if you want to use the HMAC SHA256 algorithm, the signature will be created in the following way:
+
+````
+HMACSHA256(
+  base64UrlEncode(header) + "." +
+  base64UrlEncode(payload),
+  secret)
+````
+
+## Middlewares in Nodejs
+The middleware in node. js is a function that will have all the access for requesting an object, responding to an object, and moving to the next middleware function in the application request-response cycle.
+
+
+## epressjwt middleware
+This is the package used for validating the Apis with jwt
+
+
+## Context 
+
+
 
