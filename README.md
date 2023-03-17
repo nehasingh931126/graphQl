@@ -97,11 +97,42 @@ query Company($id: ID!){
 ````
 
 ## Mutations
-Mutation is used for modifying the data
+Mutation is used for modifying the data or say creating any resourse
 
 
+````
+mutation {
+  createJob(title: "Job One", 
+  companyId: "pVbRRBQtMVw6lUAkj1k43",
+  description: "Test") {
+    id
+    title
+    company {
+      id
+      name
+    }
+  }
+}
+````
 
+## Input Types
+You can have the mutation accept the single value with the help of custom input type
 
+Regular types are called as the output types because they can only be returned by the query or the mutation
+While, Input types can only be used as arguments, passed to the query or mutation 
 
+We need to pass the input which is of type CreateJobInput in CreateJobMutation as it takes one argument
+````
+mutation CreateJobMutation($input: CreateJobInput!){
+  createJob(input: $input) {
+    id
+    title
+    company {
+      id
+      name
+    }
+  }
+}
+````
 
 
