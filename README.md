@@ -96,6 +96,9 @@ query Company($id: ID!){
 }
 ````
 
+## Mutations
+Mutation is used for modifying the data
+
 
 
 
