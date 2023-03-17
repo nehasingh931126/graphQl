@@ -122,6 +122,18 @@ Regular types are called as the output types because they can only be returned b
 While, Input types can only be used as arguments, passed to the query or mutation 
 
 We need to pass the input which is of type CreateJobInput in CreateJobMutation as it takes one argument
+
+Its good to have input type for each mutation
+
+````
+input CreateJobInput {
+    title: String!, 
+    companyId: ID!, 
+    description:String
+}
+
+````
+
 ````
 mutation CreateJobMutation($input: CreateJobInput!){
   createJob(input: $input) {
