@@ -52,3 +52,15 @@ export async function getCompanies(id) {
   const { company} = await request(GraphQL_URL, query, variables);
   return company;
 }
+
+export async function createJob(input) {
+  const query = gql`mutation CreateJobMutation($input: CreateJobInput!){
+  job: createJob(input: $input) {
+    id
+  }
+}`;
+  const variables = { input };
+
+  const { job } = await request(GraphQL_URL, query, variables);
+  return job;
+}

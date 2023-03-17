@@ -134,6 +134,7 @@ input CreateJobInput {
 
 ````
 
+Graphql Sandbox:
 ````
 mutation CreateJobMutation($input: CreateJobInput!){
   createJob(input: $input) {
@@ -146,5 +147,31 @@ mutation CreateJobMutation($input: CreateJobInput!){
   }
 }
 ````
+
+
+Adding the Alias 
+
+````
+mutation CreateJobMutation($input: CreateJobInput!){
+  job: createJob(input: $input) {
+    id
+    title
+    description
+    company {
+      id
+      name
+    }
+  }
+}
+````
+
+
+
+## React
+
+### useNavigate
+This is the hook provided by the React Router it returns a navigate function
+
+It takes the argument as string where you can pass the path
 
 
