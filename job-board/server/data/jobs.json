@@ -1,9 +1,9 @@
 [
   {
     "id": "soP9m8MdKeQX_ZXZOCSaL",
+    "title": "Senior Devops Engineer",
     "companyId": "pVbRRBQtMVw6lUAkj1k43",
-    "title": "Frontend Developer",
-    "description": "We are looking for a Frontend Developer familiar with React."
+    "description": "Some new Task.."
   },
   {
     "id": "GR7vTA_btqTnLtXcEDX8C",
@@ -25,12 +25,6 @@
   },
   {
     "id": "dPx-XFJDCqbsK0q2uWMyx",
-    "title": "Job 2",
-    "companyId": "wvdB54Gqbdp_NZTXK9Tue",
-    "description": "This is for a MEAN Stack Engineer role"
-  },
-  {
-    "id": "q49CyDmI9BiU93HlpciDr",
     "title": "Job 2",
     "companyId": "wvdB54Gqbdp_NZTXK9Tue",
     "description": "This is for a MEAN Stack Engineer role"

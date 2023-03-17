@@ -164,8 +164,18 @@ mutation CreateJobMutation($input: CreateJobInput!){
   }
 }
 ````
+## Update Job
 
-
+````
+mutation {job: updateJob(input: {
+  id: "soP9m8MdKeQX_ZXZOCSaL",
+  title: "Senior Devops Engineer",
+  description: "Some new Task..",
+  companyId: "pVbRRBQtMVw6lUAkj1k43"
+  }){
+    id
+  }}
+````
 
 ## React
 

@@ -12,7 +12,7 @@ function JobForm() {
     console.log('should post a new job:', { title, description });
     const companyId = "pVbRRBQtMVw6lUAkj1k43"; //hardcoded for future developement
     const job = await createJob({ title, description, companyId });
-    navigate(`/jobs/${job.id}` );
+    navigate(`/jobs/${job.id}`);
   };
 
   return (
