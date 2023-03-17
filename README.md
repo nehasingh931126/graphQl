@@ -279,3 +279,9 @@ input['companyId'] = user.companyId; // Donot use this
 return Job.create({ ...input, companyId: user.companyId }); // use this
 ````
 
+
+## Links
+https://www.npmjs.com/package/express-jwt
+https://jwt.io/introduction
+
+
