@@ -60,7 +60,7 @@ export async function createJob(input) {
   }
 }`;
   const variables = { input };
-
+  console.log(variables);
   const {job} = await request(GraphQL_URL, query, variables);
   return job;
 }

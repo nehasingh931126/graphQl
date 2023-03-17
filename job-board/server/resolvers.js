@@ -8,6 +8,10 @@ export const resolvers = {
 
     Mutation: {
         createJob: (_root, {input}, context)=> {
+            const auth = context.auth;
+            if (!auth) {
+                throw new Error('unauthorised')
+            }
             console.log("check what context we are getting", context);
             return Job.create(input)
         },
